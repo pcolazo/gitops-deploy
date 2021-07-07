@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        DOMAIN='apps.qa.interbanking.com.ar'
+        DOMAIN='apps.example.com.ar'
         PRJ="hello-${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
         APP='nodeapp'
     }
