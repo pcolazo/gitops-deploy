@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        DOMAIN='apps.ocp4.example.com'
+        DOMAIN='apps.qa.interbanking.com.ar'
         PRJ="hello-${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
         APP='nodeapp'
     }
@@ -20,7 +20,7 @@ pipeline {
                         openshift.newProject("${env.PRJ}")
                         openshift.withProject("${env.PRJ}") {
                             echo('Grant to developer read access to the project')
-                            openshift.raw('policy', 'add-role-to-user', 'view', 'developer')
+                            openshift.raw('policy', 'add-role-to-user', 'view', 'pcolazo')
                             echo("Create app ${env.APP}") 
                             openshift.newApp("${env.GIT_URL}#${env.BRANCH_NAME}", "--strategy source", "--name ${env.APP}")
                         }
